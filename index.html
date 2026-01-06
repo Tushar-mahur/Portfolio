@@ -2,204 +2,554 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Tushar Mahur | Cloud & DevOps</title>
+  <title>Tushar Mahur | Cloud & DevOps Engineer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #0f172a; color: #e5e7eb; }
-    a { color: #38bdf8; text-decoration: none; }
-    header, section { max-width: 900px; margin: 0 auto; padding: 24px 16px; }
-    h1, h2, h3 { color: #f9fafb; margin-bottom: 8px; }
-    h2 { margin-top: 24px; border-bottom: 1px solid #1f2937; padding-bottom: 4px; }
-    .tagline { color: #9ca3af; margin-bottom: 16px; }
-    .pill { display: inline-block; background: #1f2937; padding: 4px 10px; border-radius: 999px; margin: 4px 4px 0 0; font-size: 13px; }
-    .card { background: #020617; border: 1px solid #1f2937; border-radius: 8px; padding: 14px 16px; margin: 10px 0; }
-    .meta { font-size: 13px; color: #9ca3af; margin-bottom: 4px; }
-    .two-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-    footer { text-align: center; padding: 16px; color: #6b7280; font-size: 14px; }
+    :root {
+      --bg: #020617;
+      --bg-alt: #020617;
+      --card: #020617;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.14);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    /* HERO */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.4fr);
+      gap: 28px;
+      padding: 26px 26px 26px 26px;
+      margin-bottom: 22px;
+      border-radius: 26px;
+      background: radial-gradient(circle at top left, #22d3ee 0, #0f172a 35%, #020617 90%);
+      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-main h1 {
+      font-size: 2.4rem;
+      letter-spacing: 0.02em;
+      margin-bottom: 6px;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      color: #e5e7eb;
+      opacity: 0.9;
+      margin-bottom: 14px;
+    }
+
+    .hero-highlight {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
+    }
+
+    .hero-main p {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      opacity: 0.92;
+      margin-bottom: 12px;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      gap: 6px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+    .chip span.icon {
+      font-size: 1rem;
+    }
+    .chip:hover {
+      transform: translateY(-1px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 25px rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-side {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .hero-card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 20px;
+      padding: 14px 14px 14px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9ca3af;
+      margin-bottom: 6px;
+    }
+
+    .hero-meta-line {
+      font-size: 0.85rem;
+      color: #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      opacity: 0.95;
+    }
+
+    /* SECTION WRAPPER */
+
+    .section {
+      margin-top: 24px;
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius);
+      padding: 18px 18px 18px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title span.dot-sm {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.9);
+    }
+
+    .section-sub {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* PILLS & GRID */
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 11px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      font-size: 0.8rem;
+      color: var(--text);
+      margin: 4px 6px 0 0;
+      gap: 6px;
+    }
+
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .pill-muted {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(148, 163, 184, 0.5);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 12px 13px 12px;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.18s ease;
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.9);
+      border-color: rgba(56, 189, 248, 0.7);
+      background: #020617;
+    }
+
+    .card:hover::before { opacity: 1; }
+
+    .card-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .card-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    ul {
+      margin-left: 16px;
+      font-size: 0.85rem;
+    }
+
+    li { margin-bottom: 3px; }
+
+    /* CONTACT */
+
+    .contact-list {
+      list-style: none;
+      font-size: 0.88rem;
+    }
+
+    .contact-list li {
+      margin-bottom: 4px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
   </style>
 </head>
 <body>
+<div class="page">
 
-<header>
-  <h1>Tushar Mahur</h1>
-  <p class="tagline">Cloud & DevOps Enthusiast | Azure & AWS | Kubernetes & Docker</p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-main">
+      <div class="hero-highlight">
+        <span class="dot"></span>
+        Open to Cloud & DevOps Roles
+      </div>
 
-  <p>
-    Faridabad, Haryana, India<br />
-    <strong>Email:</strong> <a href="mailto:mahurtushar28@gmail.com">mahurtushar28@gmail.com</a><br />
-    <strong>Phone:</strong> 9873524092
-  </p>
+      <h1>Tushar Mahur</h1>
+      <p class="tagline">Cloud & DevOps Enthusiast · Azure & AWS · Kubernetes & Docker</p>
 
-  <p>
-    <strong>GitHub:</strong> <a href="https://github.com/Tushar-mahur" target="_blank">Tushar-mahur</a> |
-    <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/Tushar_mahur" target="_blank">Tushar_mahur</a> |
-    <strong>Credly:</strong> <a href="https://www.credly.com/users/tushar-mahur" target="_blank">credly/tushar-mahur</a>
-  </p>
-</header>
+      <p>
+        Final-year B.Tech Computer Science student specialising in cloud platforms (Azure, AWS),
+        containerization, and automation. I enjoy designing, deploying, and monitoring cloud-native
+        solutions that are reliable and cost-efficient.
+      </p>
 
-<section id="about">
-  <h2>About</h2>
-  <p>
-    I am a final-year B.Tech Computer Science student with a strong focus on cloud computing, DevOps, and automation.
-    I have hands-on experience with Microsoft Azure and AWS, working on virtual machines, storage, security, and data
-    visualization using Power BI. I enjoy building end-to-end cloud solutions and continuously improving my skills
-    in Kubernetes, Docker, and Python.
-  </p>
-</section>
+      <p style="font-size: 0.85rem; color: #e5e7eb; opacity: 0.9;">
+        Faridabad, Haryana, India ·
+        <a href="mailto:mahurtushar28@gmail.com">mahurtushar28@gmail.com</a> ·
+        +91-9873524092
+      </p>
 
-<section id="skills">
-  <h2>Skills</h2>
+      <div class="hero-links">
+        <a class="chip" href="https://github.com/Tushar-mahur" target="_blank">
+          <span class="icon">🐙</span><span>GitHub</span>
+        </a>
+        <a class="chip" href="https://www.linkedin.com/in/Tushar_mahur" target="_blank">
+          <span class="icon">💼</span><span>LinkedIn</span>
+        </a>
+        <a class="chip" href="https://www.credly.com/users/tushar-mahur" target="_blank">
+          <span class="icon">🎓</span><span>Credly Badges</span>
+        </a>
+      </div>
+    </div>
 
-  <h3>Programming & Scripting</h3>
-  <div>
-    <span class="pill">Python</span>
-    <span class="pill">JavaScript</span>
-    <span class="pill">HTML</span>
-    <span class="pill">CSS</span>
-    <span class="pill">C</span>
-  </div>
+    <div class="hero-side">
+      <div class="hero-card">
+        <div class="hero-card-title">Snapshot</div>
+        <div class="hero-meta-line">
+          <span>B.Tech CSE</span>
+          <span>2021 – 2025</span>
+        </div>
+        <div class="hero-meta-line">
+          <span>AWS re/Start</span>
+          <span>2024 – 2025</span>
+        </div>
+        <div class="hero-meta-line">
+          <span>Cloud Intern</span>
+          <span>Yhills · 2024</span>
+        </div>
+      </div>
 
-  <h3>Cloud & DevOps</h3>
-  <div>
-    <span class="pill">Microsoft Azure</span>
-    <span class="pill">Azure VM</span>
-    <span class="pill">Azure Blob Storage</span>
-    <span class="pill">Azure SQL Database</span>
-    <span class="pill">Azure Key Vault</span>
-    <span class="pill">AWS S3</span>
-    <span class="pill">AWS EC2</span>
-    <span class="pill">AWS VPC</span>
-    <span class="pill">AWS RDS</span>
-    <span class="pill">AWS IAM</span>
-    <span class="pill">AWS CloudWatch</span>
-    <span class="pill">AWS Route 53</span>
-    <span class="pill">Load Balancing</span>
-    <span class="pill">Lambda</span>
-    <span class="pill">Docker</span>
-    <span class="pill">Kubernetes</span>
-  </div>
+      <div class="hero-card">
+        <div class="hero-card-title">Core Stack</div>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;">
+          <span class="pill pill-muted"><span class="pill-dot"></span>Azure</span>
+          <span class="pill pill-muted"><span class="pill-dot"></span>AWS</span>
+          <span class="pill pill-muted"><span class="pill-dot"></span>Docker</span>
+          <span class="pill pill-muted"><span class="pill-dot"></span>Kubernetes</span>
+          <span class="pill pill-muted"><span class="pill-dot"></span>Python</span>
+          <span class="pill pill-muted"><span class="pill-dot"></span>Power BI</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <h3>Data & Tools</h3>
-  <div>
-    <span class="pill">SQL</span>
-    <span class="pill">Power BI</span>
-    <span class="pill">Linux</span>
-    <span class="pill">Git & GitHub</span>
-    <span class="pill">VS Code</span>
-    <span class="pill">NumPy</span>
-    <span class="pill">pandas</span>
-    <span class="pill">MATLAB</span>
-  </div>
-</section>
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="section-header">
+      <div class="section-title"><span class="dot-sm"></span> Skills</div>
+      <div class="section-sub">Cloud · DevOps · Programming · Data</div>
+    </div>
 
-<section id="experience">
-  <h2>Experience</h2>
+    <div style="margin-bottom:8px;">
+      <strong>Programming & Scripting</strong><br/>
+      <span class="pill"><span class="pill-dot"></span>Python</span>
+      <span class="pill"><span class="pill-dot"></span>JavaScript</span>
+      <span class="pill"><span class="pill-dot"></span>HTML</span>
+      <span class="pill"><span class="pill-dot"></span>CSS</span>
+      <span class="pill"><span class="pill-dot"></span>C</span>
+    </div>
 
-  <div class="card">
-    <h3>Cloud Intern – Yhills Foundations</h3>
-    <p class="meta">Jul 2024 – Sep 2024 · Noida, India (Remote)</p>
-    <ul>
-      <li>Worked with Microsoft Azure to deploy and manage cloud resources, improving understanding of cloud architecture and services.</li>
-      <li>Assisted in implementing cloud solutions that improved project efficiency and performance.</li>
-      <li>Participated in training sessions focused on Azure services and cloud best practices.</li>
+    <div style="margin:10px 0 8px;">
+      <strong>Cloud & DevOps</strong><br/>
+      <span class="pill"><span class="pill-dot"></span>Microsoft Azure</span>
+      <span class="pill"><span class="pill-dot"></span>Azure VM</span>
+      <span class="pill"><span class="pill-dot"></span>Azure Blob Storage</span>
+      <span class="pill"><span class="pill-dot"></span>Azure SQL Database</span>
+      <span class="pill"><span class="pill-dot"></span>Azure Key Vault</span>
+      <span class="pill"><span class="pill-dot"></span>AWS S3</span>
+      <span class="pill"><span class="pill-dot"></span>AWS EC2</span>
+      <span class="pill"><span class="pill-dot"></span>AWS VPC</span>
+      <span class="pill"><span class="pill-dot"></span>AWS RDS</span>
+      <span class="pill"><span class="pill-dot"></span>AWS IAM</span>
+      <span class="pill"><span class="pill-dot"></span>CloudWatch</span>
+      <span class="pill"><span class="pill-dot"></span>Route 53</span>
+      <span class="pill"><span class="pill-dot"></span>Load Balancing</span>
+      <span class="pill"><span class="pill-dot"></span>Lambda</span>
+      <span class="pill"><span class="pill-dot"></span>Docker</span>
+      <span class="pill"><span class="pill-dot"></span>Kubernetes</span>
+    </div>
+
+    <div style="margin-top:8px;">
+      <strong>Data & Tools</strong><br/>
+      <span class="pill"><span class="pill-dot"></span>SQL</span>
+      <span class="pill"><span class="pill-dot"></span>Power BI</span>
+      <span class="pill"><span class="pill-dot"></span>Linux</span>
+      <span class="pill"><span class="pill-dot"></span>Git & GitHub</span>
+      <span class="pill"><span class="pill-dot"></span>VS Code</span>
+      <span class="pill"><span class="pill-dot"></span>NumPy</span>
+      <span class="pill"><span class="pill-dot"></span>pandas</span>
+      <span class="pill"><span class="pill-dot"></span>MATLAB</span>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section" id="experience">
+    <div class="section-header">
+      <div class="section-title"><span class="dot-sm"></span> Experience</div>
+      <div class="section-sub">Hands-on cloud & Python exposure</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Cloud Intern · Yhills Foundations</div>
+      <div class="card-meta">Jul 2024 – Sep 2024 · Noida, India (Remote)</div>
+      <ul>
+        <li>Worked on Microsoft Azure to deploy and manage virtual machines, storage, and networking resources.</li>
+        <li>Collaborated with the team to implement cloud solutions that improved performance and efficiency.</li>
+        <li>Participated in training sessions focused on Azure services, security, and best practices.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Python Training · Barclays & Echelon Institute</div>
+      <div class="card-meta">Feb 2024 – Mar 2024</div>
+      <ul>
+        <li>Completed a focused Python training program covering syntax, data structures, algorithms, and OOP.</li>
+        <li>Built hands-on skills using libraries like NumPy, pandas, and MATLAB for data analysis and computation.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="section-header">
+      <div class="section-title"><span class="dot-sm"></span> Projects</div>
+      <div class="section-sub">Practical cloud implementations on Azure</div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Azure Virtual Machine Setup</div>
+        <div class="card-meta">Azure · Ubuntu VM · RDP</div>
+        <ul>
+          <li>Configured an Ubuntu-based Azure Virtual Machine with remote access for application development and testing.</li>
+          <li>Managed basic network and access settings to ensure secure connectivity to the VM.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Azure Blob Storage & Static Website</div>
+        <div class="card-meta">Azure Blob Storage · Static Hosting</div>
+        <ul>
+          <li>Uploaded images to Azure Blob Storage, configured public access, and generated shareable links.</li>
+          <li>Hosted a “Hello World” static website with Azure Static Website Hosting using storage account.</li>
+          <li>Implemented lifecycle management policy to automatically move blobs from hot to cool tier after 100 days of inactivity.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Azure Key Vault Implementation</div>
+        <div class="card-meta">Azure Key Vault · Security</div>
+        <ul>
+          <li>Created and managed cryptographic keys and secrets in Azure Key Vault.</li>
+          <li>Stored sensitive credentials securely to improve application security and access control.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Azure SQL Database & Power BI</div>
+        <div class="card-meta">Azure SQL · Power BI · AdventureWorksLT</div>
+        <ul>
+          <li>Deployed an Azure SQL Database using the AdventureWorksLT sample dataset.</li>
+          <li>Designed Power BI reports with multiple graphs to visualise key trends and data insights.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="section" id="certifications">
+    <div class="section-header">
+      <div class="section-title"><span class="dot-sm"></span> Certifications</div>
+      <div class="section-sub">Validating Cloud & DevOps skills</div>
+    </div>
+    <ul style="margin-left:16px;font-size:0.88rem;">
+      <li>AWS Certified Cloud Practitioner</li>
+      <li>Oracle Cloud Infrastructure Certified DevOps Professional</li>
+      <li>Cloud Computing Fundamentals – IBM</li>
     </ul>
-  </div>
+  </section>
 
-  <div class="card">
-    <h3>Python Training – Barclays & Echelon Institute of Technology</h3>
-    <p class="meta">Feb 2024 – Mar 2024</p>
-    <ul>
-      <li>Completed an intensive Python training program covering syntax, data structures, algorithms, and OOP concepts.</li>
-      <li>Gained hands-on experience with libraries such as NumPy, pandas, and MATLAB for data analysis and computation.</li>
+  <!-- EDUCATION -->
+  <section class="section" id="education">
+    <div class="section-header">
+      <div class="section-title"><span class="dot-sm"></span> Education</div>
+      <div class="section-sub">Academic & structured cloud learning</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">B.Tech in Computer Science</div>
+      <div class="card-meta">Echelon Institute of Technology · Jul 2021 – Apr 2025</div>
+      <ul>
+        <li>Studied core computer science concepts along with cloud computing, programming, and data analysis.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">AWS re/Start – Cloud Practitioner</div>
+      <div class="card-meta">Tech Mahindra SmART Academy · Dec 2024 – Jun 2025</div>
+      <ul>
+        <li>Completed AWS re/Start program with hands-on labs in core AWS services and cloud fundamentals.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="section-header">
+      <div class="section-title"><span class="dot-sm"></span> Contact</div>
+      <div class="section-sub">Let’s connect for roles or projects</div>
+    </div>
+    <ul class="contact-list">
+      <li><strong>Email:</strong> <a href="mailto:mahurtushar28@gmail.com">mahurtushar28@gmail.com</a></li>
+      <li><strong>Phone:</strong> +91-9873524092</li>
+      <li><strong>Location:</strong> Faridabad, Haryana, India</li>
     </ul>
-  </div>
-</section>
+  </section>
 
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="two-cols">
+  <footer>
+    © <span id="year"></span> Tushar Mahur · Built with HTML & CSS
+  </footer>
 
-    <div class="card">
-      <h3>Azure Virtual Machine Setup</h3>
-      <p class="meta">Technologies: Azure, Ubuntu</p>
-      <ul>
-        <li>Configured an Ubuntu-based Azure Virtual Machine with remote desktop access for development and testing.</li>
-        <li>Handled network and access configuration to ensure secure connectivity.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>Azure Blob Storage & Static Website</h3>
-      <p class="meta">Technologies: Azure Blob Storage, Static Website Hosting</p>
-      <ul>
-        <li>Uploaded and managed blobs with public access, generating secure shareable links for assets.</li>
-        <li>Hosted a static “Hello World” website using Azure Storage and configured lifecycle policies to move blobs from hot to cool tier after 100 days.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>Azure Key Vault Implementation</h3>
-      <p class="meta">Technologies: Azure Key Vault</p>
-      <ul>
-        <li>Created and managed cryptographic keys and secrets in Azure Key Vault.</li>
-        <li>Improved application security by securely storing passwords and sensitive configuration.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>Azure SQL Database & Power BI Report</h3>
-      <p class="meta">Technologies: Azure SQL Database, Power BI</p>
-      <ul>
-        <li>Built an Azure SQL Database using AdventureWorksLT sample data.</li>
-        <li>Designed interactive Power BI reports with multiple charts to visualize trends and insights.</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<section id="certifications">
-  <h2>Certifications</h2>
-  <ul>
-    <li>AWS Certified Cloud Practitioner</li>
-    <li>Oracle Cloud Infrastructure Certified DevOps Professional</li>
-    <li>Cloud Computing Fundamentals – IBM</li>
-  </ul>
-</section>
-
-<section id="education">
-  <h2>Education</h2>
-
-  <div class="card">
-    <h3>B.Tech in Computer Science</h3>
-    <p class="meta">Echelon Institute of Technology · Jul 2021 – Apr 2025</p>
-    <p>Studied core computer science fundamentals with a focus on cloud computing, programming, and data analysis.</p>
-  </div>
-
-  <div class="card">
-    <h3>AWS re/Start – Cloud Practitioner</h3>
-    <p class="meta">Tech Mahindra SmART Academy · Dec 2024 – Jun 2025</p>
-    <p>Completed AWS re/Start program focused on AWS cloud fundamentals, hands-on labs, and employability skills.</p>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <p>If you’d like to discuss opportunities, projects, or collaboration, feel free to reach out:</p>
-  <ul>
-    <li><strong>Email:</strong> <a href="mailto:mahurtushar28@gmail.com">mahurtushar28@gmail.com</a></li>
-    <li><strong>Phone:</strong> 9873524092</li>
-    <li><strong>Location:</strong> Faridabad, Haryana, India</li>
-  </ul>
-</section>
-
-<footer>
-  © <span id="year"></span> Tushar Mahur
-</footer>
+</div>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
-
 </body>
-</html>
+</html> 
