@@ -1,555 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Tushar Mahur | Cloud & DevOps Engineer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --bg: #020617;
-      --bg-alt: #020617;
-      --card: #020617;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.14);
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --border: #1f2937;
-      --shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
-      --radius: 18px;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .page {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 24px 16px 40px;
-    }
-
-    /* HERO */
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.4fr);
-      gap: 28px;
-      padding: 26px 26px 26px 26px;
-      margin-bottom: 22px;
-      border-radius: 26px;
-      background: radial-gradient(circle at top left, #22d3ee 0, #0f172a 35%, #020617 90%);
-      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(148, 163, 184, 0.3);
-    }
-
-    @media (max-width: 800px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .hero-main h1 {
-      font-size: 2.4rem;
-      letter-spacing: 0.02em;
-      margin-bottom: 6px;
-    }
-
-    .tagline {
-      font-size: 1rem;
-      color: #e5e7eb;
-      opacity: 0.9;
-      margin-bottom: 14px;
-    }
-
-    .hero-highlight {
-      display: inline-flex;
-      align-items: center;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      font-size: 0.8rem;
-      color: #e5e7eb;
-      gap: 6px;
-      margin-bottom: 12px;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
-    }
-
-    .hero-main p {
-      font-size: 0.9rem;
-      color: #e5e7eb;
-      opacity: 0.92;
-      margin-bottom: 12px;
-    }
-
-    .hero-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 6px;
-    }
-
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      font-size: 0.8rem;
-      color: #e5e7eb;
-      gap: 6px;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-    }
-    .chip span.icon {
-      font-size: 1rem;
-    }
-    .chip:hover {
-      transform: translateY(-1px);
-      border-color: var(--accent);
-      box-shadow: 0 12px 25px rgba(15, 23, 42, 0.9);
-    }
-
-    .hero-side {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .hero-card {
-      background: rgba(15, 23, 42, 0.9);
-      border-radius: 20px;
-      padding: 14px 14px 14px;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-card-title {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #9ca3af;
-      margin-bottom: 6px;
-    }
-
-    .hero-meta-line {
-      font-size: 0.85rem;
-      color: #e5e7eb;
-      display: flex;
-      justify-content: space-between;
-      opacity: 0.95;
-    }
-
-    /* SECTION WRAPPER */
-
-    .section {
-      margin-top: 24px;
-      background: rgba(15, 23, 42, 0.96);
-      border-radius: var(--radius);
-      padding: 18px 18px 18px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .section-title span.dot-sm {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 10px rgba(56, 189, 248, 0.9);
-    }
-
-    .section-sub {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    /* PILLS & GRID */
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 5px 11px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      border: 1px solid rgba(56, 189, 248, 0.4);
-      font-size: 0.8rem;
-      color: var(--text);
-      margin: 4px 6px 0 0;
-      gap: 6px;
-    }
-
-    .pill-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--accent);
-    }
-
-    .pill-muted {
-      background: rgba(15, 23, 42, 0.9);
-      border-color: rgba(148, 163, 184, 0.5);
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 14px;
-    }
-
-    .card {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 12px 13px 12px;
-      border: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 55%);
-      opacity: 0;
-      transition: opacity 0.18s ease;
-      pointer-events: none;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.9);
-      border-color: rgba(56, 189, 248, 0.7);
-      background: #020617;
-    }
-
-    .card:hover::before { opacity: 1; }
-
-    .card-title {
-      font-size: 0.95rem;
-      font-weight: 500;
-      margin-bottom: 4px;
-    }
-
-    .card-meta {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-
-    ul {
-      margin-left: 16px;
-      font-size: 0.85rem;
-    }
-
-    li { margin-bottom: 3px; }
-
-    /* CONTACT */
-
-    .contact-list {
-      list-style: none;
-      font-size: 0.88rem;
-    }
-
-    .contact-list li {
-      margin-bottom: 4px;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 24px;
-      color: var(--muted);
-      font-size: 0.8rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tushar Mahur - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0d6efd;
+            --dark: #212529;
+        }
+        body { font-family: 'Arial', sans-serif; scroll-behavior: smooth; }
+        .navbar { box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: all 0.3s; }
+        .hero { 
+            min-height: 100vh; 
+            background: linear-gradient(135deg, #0c0c0c, #1a1a2e, #16213e);
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+        }
+        .card { 
+            transition: transform 0.3s, box-shadow 0.3s; 
+            border: none;
+        }
+        .card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important; 
+        }
+        .timeline-item { 
+            position: relative; 
+            padding-left: 30px; 
+            margin-bottom: 30px; 
+        }
+        .timeline-item::before { 
+            content: ''; 
+            position: absolute; 
+            left: 15px; 
+            top: 0; 
+            bottom: -30px; 
+            width: 2px; 
+            background: var(--primary); 
+        }
+        .timeline-item h5 { color: var(--primary); }
+        .btn { transition: all 0.3s; }
+        .btn:hover { transform: scale(1.05); }
+        footer { background: #000; }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem !important; }
+            .display-4 { font-size: 3rem; }
+        }
+    </style>
 </head>
 <body>
-<div class="page">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-main">
-      <div class="hero-highlight">
-        <span class="dot"></span>
-        Open to Cloud & DevOps Roles
-      </div>
-
-      <h1>Tushar Mahur</h1>
-      <p class="tagline">Cloud & DevOps Enthusiast · Azure & AWS · Kubernetes & Docker</p>
-
-      <p>
-        Final-year B.Tech Computer Science student specialising in cloud platforms (Azure, AWS),
-        containerization, and automation. I enjoy designing, deploying, and monitoring cloud-native
-        solutions that are reliable and cost-efficient.
-      </p>
-
-      <p style="font-size: 0.85rem; color: #e5e7eb; opacity: 0.9;">
-        Faridabad, Haryana, India ·
-        <a href="mailto:mahurtushar28@gmail.com">mahurtushar28@gmail.com</a> ·
-        +91-9873524092
-      </p>
-
-      <div class="hero-links">
-        <a class="chip" href="https://github.com/Tushar-mahur" target="_blank">
-          <span class="icon">🐙</span><span>GitHub</span>
-        </a>
-        <a class="chip" href="https://www.linkedin.com/in/Tushar_mahur" target="_blank">
-          <span class="icon">💼</span><span>LinkedIn</span>
-        </a>
-        <a class="chip" href="https://www.credly.com/users/tushar-mahur" target="_blank">
-          <span class="icon">🎓</span><span>Credly Badges</span>
-        </a>
-      </div>
-    </div>
-
-    <div class="hero-side">
-      <div class="hero-card">
-        <div class="hero-card-title">Snapshot</div>
-        <div class="hero-meta-line">
-          <span>B.Tech CSE</span>
-          <span>2021 – 2025</span>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#home">Tushar Mahur</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="hero-meta-line">
-          <span>AWS re/Start</span>
-          <span>2024 – 2025</span>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="display-4 fw-bold mb-4">Hi, I'm <span class="text-primary">Tushar Mahur</span></h1>
+                    <p class="lead mb-4">BTech CS Student | Cloud Enthusiast | Python Developer from Faridabad</p>
+                    <a href="#projects" class="btn btn-primary btn-lg me-3">View Projects</a>
+                    <a href="tushar-resume-14.pdf" class="btn btn-outline-light btn-lg" download>Download Resume</a>
+                </div>
+                <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-delay="200">
+                    <i class="fas fa-cloud fa-10x text-primary opacity-75"></i>
+                </div>
+            </div>
         </div>
-        <div class="hero-meta-line">
-          <span>Cloud Intern</span>
-          <span>Yhills · 2024</span>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center" data-aos="zoom-in">
+                    <h2 class="mb-4">About Me</h2>
+                    <p class="lead">Pursuing BTech in Computer Science at Echelon Institute of Technology (2021-2025). Passionate about cloud computing with hands-on Azure & AWS experience. Skilled in Python, SQL, Power BI. Contact: 9873524092 | mahurtushar28@gmail.com [file:1].</p>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <div class="hero-card">
-        <div class="hero-card-title">Core Stack</div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;">
-          <span class="pill pill-muted"><span class="pill-dot"></span>Azure</span>
-          <span class="pill pill-muted"><span class="pill-dot"></span>AWS</span>
-          <span class="pill pill-muted"><span class="pill-dot"></span>Docker</span>
-          <span class="pill pill-muted"><span class="pill-dot"></span>Kubernetes</span>
-          <span class="pill pill-muted"><span class="pill-dot"></span>Python</span>
-          <span class="pill pill-muted"><span class="pill-dot"></span>Power BI</span>
+    <!-- Skills Section -->
+    <section id="skills" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Skills</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3" data-aos="flip-left" data-aos-delay="100">
+                    <div class="card h-100 shadow">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-code fa-3x text-primary mb-3"></i>
+                            <h5>Programming</h5>
+                            <ul class="list-unstyled">
+                                <li>HTML, CSS, JavaScript</li>
+                                <li>C, Python</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="flip-left" data-aos-delay="200">
+                    <div class="card h-100 shadow">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-cloud fa-3x text-info mb-3"></i>
+                            <h5>Cloud</h5>
+                            <ul class="list-unstyled">
+                                <li>Azure VM, Blob, Key Vault, SQL</li>
+                                <li>AWS S3, EC2, Lambda</li>
+                                <li>Docker, Kubernetes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="flip-left" data-aos-delay="300">
+                    <div class="card h-100 shadow">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-chart-bar fa-3x text-success mb-3"></i>
+                            <h5>Data</h5>
+                            <ul class="list-unstyled">
+                                <li>SQL, Power BI</li>
+                                <li>NumPy, Pandas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="flip-left" data-aos-delay="400">
+                    <div class="card h-100 shadow">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-tools fa-3x text-warning mb-3"></i>
+                            <h5>Tools</h5>
+                            <ul class="list-unstyled">
+                                <li>Linux, Git, VS Code</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SKILLS -->
-  <section class="section" id="skills">
-    <div class="section-header">
-      <div class="section-title"><span class="dot-sm"></span> Skills</div>
-      <div class="section-sub">Cloud · DevOps · Programming · Data</div>
-    </div>
+    <!-- Projects Section -->
+    <section id="projects" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Projects</h2>
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100 shadow">
+                        <div class="card-body">
+                            <h5>Azure Virtual Machine Setup</h5>
+                            <p>Ubuntu VM with RDP access for dev/testing [file:1].</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100 shadow">
+                        <div class="card-body">
+                            <h5>Azure Blob Storage & Static Site</h5>
+                            <p>Image upload, public hosting, lifecycle policy [file:1].</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-100 shadow">
+                        <div class="card-body">
+                            <h5>Azure Key Vault</h5>
+                            <p>Cryptographic keys & secret management [file:1].</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card h-100 shadow">
+                        <div class="card-body">
+                            <h5>Azure SQL & Power BI Report</h5>
+                            <p>AdventureWorks DB with graphs/dashboards [file:1].</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div style="margin-bottom:8px;">
-      <strong>Programming & Scripting</strong><br/>
-      <span class="pill"><span class="pill-dot"></span>Python</span>
-      <span class="pill"><span class="pill-dot"></span>JavaScript</span>
-      <span class="pill"><span class="pill-dot"></span>HTML</span>
-      <span class="pill"><span class="pill-dot"></span>CSS</span>
-      <span class="pill"><span class="pill-dot"></span>C</span>
-    </div>
+    <!-- Experience Section -->
+    <section id="experience" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Experience & Education</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="timeline-item" data-aos="fade-right">
+                        <h5>Yhills Foundations - Intern (Jul-Sep 2024)</h5>
+                        <p>Azure cloud deployment & management [file:1].</p>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-left">
+                        <h5>Barclays Python Training (Feb-Mar 2024)</h5>
+                        <p>OOP, NumPy, Pandas [file:1].</p>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-right">
+                        <h5>BTech Computer Science (2021-2025)</h5>
+                        <p>Echelon Institute of Technology [file:1].</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div style="margin:10px 0 8px;">
-      <strong>Cloud & DevOps</strong><br/>
-      <span class="pill"><span class="pill-dot"></span>Microsoft Azure</span>
-      <span class="pill"><span class="pill-dot"></span>Azure VM</span>
-      <span class="pill"><span class="pill-dot"></span>Azure Blob Storage</span>
-      <span class="pill"><span class="pill-dot"></span>Azure SQL Database</span>
-      <span class="pill"><span class="pill-dot"></span>Azure Key Vault</span>
-      <span class="pill"><span class="pill-dot"></span>AWS S3</span>
-      <span class="pill"><span class="pill-dot"></span>AWS EC2</span>
-      <span class="pill"><span class="pill-dot"></span>AWS VPC</span>
-      <span class="pill"><span class="pill-dot"></span>AWS RDS</span>
-      <span class="pill"><span class="pill-dot"></span>AWS IAM</span>
-      <span class="pill"><span class="pill-dot"></span>CloudWatch</span>
-      <span class="pill"><span class="pill-dot"></span>Route 53</span>
-      <span class="pill"><span class="pill-dot"></span>Load Balancing</span>
-      <span class="pill"><span class="pill-dot"></span>Lambda</span>
-      <span class="pill"><span class="pill-dot"></span>Docker</span>
-      <span class="pill"><span class="pill-dot"></span>Kubernetes</span>
-    </div>
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-dark text-white">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="zoom-in">Get In Touch</h2>
+            <div class="row text-center">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <i class="fas fa-phone fa-2x mb-3 text-primary"></i>
+                    <h5>9873524092</h5>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-envelope fa-2x mb-3 text-primary"></i>
+                    <h5>mahurtushar28@gmail.com</h5>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-map-marker-alt fa-2x mb-3 text-primary"></i>
+                    <h5>Faridabad, Haryana, IN</h5>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div style="margin-top:8px;">
-      <strong>Data & Tools</strong><br/>
-      <span class="pill"><span class="pill-dot"></span>SQL</span>
-      <span class="pill"><span class="pill-dot"></span>Power BI</span>
-      <span class="pill"><span class="pill-dot"></span>Linux</span>
-      <span class="pill"><span class="pill-dot"></span>Git & GitHub</span>
-      <span class="pill"><span class="pill-dot"></span>VS Code</span>
-      <span class="pill"><span class="pill-dot"></span>NumPy</span>
-      <span class="pill"><span class="pill-dot"></span>pandas</span>
-      <span class="pill"><span class="pill-dot"></span>MATLAB</span>
-    </div>
-  </section>
+    <!-- Footer -->
+    <footer class="text-center py-4 text-white bg-black">
+        <p>&copy; 2026 Tushar Mahur | Built with Bootstrap 5 & AOS Animations</p>
+    </footer>
 
-  <!-- EXPERIENCE -->
-  <section class="section" id="experience">
-    <div class="section-header">
-      <div class="section-title"><span class="dot-sm"></span> Experience</div>
-      <div class="section-sub">Hands-on cloud & Python exposure</div>
-    </div>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // AOS Init
+        AOS.init({ duration: 1000, once: true, offset: 100 });
 
-    <div class="card">
-      <div class="card-title">Cloud Intern · Yhills Foundations</div>
-      <div class="card-meta">Jul 2024 – Sep 2024 · Noida, India (Remote)</div>
-      <ul>
-        <li>Worked on Microsoft Azure to deploy and manage virtual machines, storage, and networking resources.</li>
-        <li>Collaborated with the team to implement cloud solutions that improved performance and efficiency.</li>
-        <li>Participated in training sessions focused on Azure services, security, and best practices.</li>
-      </ul>
-    </div>
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
 
-    <div class="card">
-      <div class="card-title">Python Training · Barclays & Echelon Institute</div>
-      <div class="card-meta">Feb 2024 – Mar 2024</div>
-      <ul>
-        <li>Completed a focused Python training program covering syntax, data structures, algorithms, and OOP.</li>
-        <li>Built hands-on skills using libraries like NumPy, pandas, and MATLAB for data analysis and computation.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="section" id="projects">
-    <div class="section-header">
-      <div class="section-title"><span class="dot-sm"></span> Projects</div>
-      <div class="section-sub">Practical cloud implementations on Azure</div>
-    </div>
-
-    <div class="grid-2">
-      <div class="card">
-        <div class="card-title">Azure Virtual Machine Setup</div>
-        <div class="card-meta">Azure · Ubuntu VM · RDP</div>
-        <ul>
-          <li>Configured an Ubuntu-based Azure Virtual Machine with remote access for application development and testing.</li>
-          <li>Managed basic network and access settings to ensure secure connectivity to the VM.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Azure Blob Storage & Static Website</div>
-        <div class="card-meta">Azure Blob Storage · Static Hosting</div>
-        <ul>
-          <li>Uploaded images to Azure Blob Storage, configured public access, and generated shareable links.</li>
-          <li>Hosted a “Hello World” static website with Azure Static Website Hosting using storage account.</li>
-          <li>Implemented lifecycle management policy to automatically move blobs from hot to cool tier after 100 days of inactivity.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Azure Key Vault Implementation</div>
-        <div class="card-meta">Azure Key Vault · Security</div>
-        <ul>
-          <li>Created and managed cryptographic keys and secrets in Azure Key Vault.</li>
-          <li>Stored sensitive credentials securely to improve application security and access control.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Azure SQL Database & Power BI</div>
-        <div class="card-meta">Azure SQL · Power BI · AdventureWorksLT</div>
-        <ul>
-          <li>Deployed an Azure SQL Database using the AdventureWorksLT sample dataset.</li>
-          <li>Designed Power BI reports with multiple graphs to visualise key trends and data insights.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- CERTIFICATIONS -->
-  <section class="section" id="certifications">
-    <div class="section-header">
-      <div class="section-title"><span class="dot-sm"></span> Certifications</div>
-      <div class="section-sub">Validating Cloud & DevOps skills</div>
-    </div>
-    <ul style="margin-left:16px;font-size:0.88rem;">
-      <li>AWS Certified Cloud Practitioner</li>
-      <li>Oracle Cloud Infrastructure Certified DevOps Professional</li>
-      <li>Cloud Computing Fundamentals – IBM</li>
-    </ul>
-  </section>
-
-  <!-- EDUCATION -->
-  <section class="section" id="education">
-    <div class="section-header">
-      <div class="section-title"><span class="dot-sm"></span> Education</div>
-      <div class="section-sub">Academic & structured cloud learning</div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">B.Tech in Computer Science</div>
-      <div class="card-meta">Echelon Institute of Technology · Jul 2021 – Apr 2025</div>
-      <ul>
-        <li>Studied core computer science concepts along with cloud computing, programming, and data analysis.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <div class="card-title">AWS re/Start – Cloud Practitioner</div>
-      <div class="card-meta">Tech Mahindra SmART Academy · Dec 2024 – Jun 2025</div>
-      <ul>
-        <li>Completed AWS re/Start program with hands-on labs in core AWS services and cloud fundamentals.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section" id="contact">
-    <div class="section-header">
-      <div class="section-title"><span class="dot-sm"></span> Contact</div>
-      <div class="section-sub">Let’s connect for roles or projects</div>
-    </div>
-    <ul class="contact-list">
-      <li><strong>Email:</strong> <a href="mailto:mahurtushar28@gmail.com">mahurtushar28@gmail.com</a></li>
-      <li><strong>Phone:</strong> +91-9873524092</li>
-      <li><strong>Location:</strong> Faridabad, Haryana, India</li>
-    </ul>
-  </section>
-
-  <footer>
-    © <span id="year"></span> Tushar Mahur · Built with HTML & CSS
-  </footer>
-
-</div>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(33, 37, 41, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.style.background = 'transparent';
+                navbar.style.backdropFilter = 'none';
+            }
+        });
+    </script>
 </body>
-</html> 
+</html>
