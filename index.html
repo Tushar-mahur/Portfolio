@@ -22,8 +22,10 @@
         --text-light: #6b7280;
         --shadow-violet: rgba(155,169,255,0.4);
         }
-        body { font-family: 'Arial', sans-serif; scroll-behavior: smooth; }
-        .navbar { box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: all 0.3s; }
+        body { font-family: 'Arial', sans-serif; scroll-behavior: smooth;
+      background: linear-gradient(180deg, var(--dark-bg), var(--violet-1)); color: var(--text-dark);   padding-top: 76px; } /* Fixed navbar space */
+
+        .navbar { box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: all 0.3s; position: fixed !important; top: 0; width: 100%; z-index: 9999; }
         .hero { 
             min-height: 100vh; 
             background: linear-gradient(135deg, 
@@ -62,32 +64,220 @@
             border: none;
         }
         .card:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important; 
+            transform: translateY(-15px) scale(1.02); 
+        box-shadow: 0 30px 80px var(--shadow-violet) !important;
+        border-color: var(--violet-4) !important;
         }
-        .timeline-item { 
-            position: relative; 
-            padding-left: 30px; 
-            margin-bottom: 30px; 
-        }
-        .timeline-item::before { 
-            content: ''; 
-            position: absolute; 
-            left: 15px; 
-            top: 0; 
-            bottom: -30px; 
-            width: 2px; 
-            background: var(--primary); 
-        }
-        .timeline-item h5 { color: var(--primary); }
-        .btn { transition: all 0.3s; }
-        .btn:hover { transform: scale(1.05); }
-        footer { background: #000; }
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem !important; }
-            .display-4 { font-size: 3rem; }
-        }
-    </style>
+    /* Violet sections */
+    #about, #projects, #certifications, #skills, #experience {
+        background: rgba(255,255,255,0.92);
+        backdrop-filter: blur(16px);
+        margin: 2rem auto;
+        max-width: 1150px;
+        border-radius: 24px;
+        box-shadow: 0 20px 60px var(--shadow-violet);
+        border: 1px solid var(--violet-6);
+    }
+
+    .card { 
+        background: linear-gradient(145deg, #fafbff, var(--violet-9)) !important;
+        border: 1px solid rgba(155,169,255,0.3) !important;
+        box-shadow: 0 10px 40px rgba(155,169,255,0.2);
+        border-radius: 20px;
+        transition: all 0.4s ease;
+    }
+    .card:hover { 
+        transform: translateY(-15px) scale(1.02); 
+        box-shadow: 0 30px 80px var(--shadow-violet) !important;
+        border-color: var(--violet-4) !important;
+    }
+
+    /* Typography gradient */
+    section h2 {
+        background: linear-gradient(135deg, var(--violet-3), var(--violet-7));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 700;
+    }
+    .card-title, .timeline-item h5 {
+        color: var(--violet-2) !important;
+        font-weight: 600;
+    }
+    .card-text, .lead {
+        color: var(--text-light);
+    }
+
+    /* Violet buttons */
+    .btn-primary {
+        background: linear-gradient(135deg, var(--violet-4), var(--violet-7));
+        border: none !important;
+        color: var(--text-dark);
+        font-weight: 600;
+        box-shadow: 0 8px 25px rgba(155,169,255,0.4);
+        border-radius: 50px;
+    }
+    .btn-primary:hover {
+        background: linear-gradient(135deg, var(--violet-7), var(--violet-9));
+        box-shadow: 0 12px 35px rgba(236,202,255,0.6);
+        transform: translateY(-3px);
+    }
+
+    .btn-outline-light {
+        border-color: black;
+        color: white;
+    }
+    .btn-outline-light:hover {
+        background: var(--violet-6);
+        border-color: var(--violet-6);
+        color: var(--text-dark);
+    }
+
+    /* Certifications glow */
+    .cert-card {
+        border-top: 4px solid var(--violet-8);
+        box-shadow: 0 5px 20px rgba(226,198,255,0.3);
+  
+       
+    }
+    .cert-card::before {
+        content: '✓ Certified';
+        position: absolute;
+        top: fixed;
+        right: 15px;
+        background: goldenrod;
+        color:white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+    }
+
+    /* Timeline */
+    .timeline-item::before { 
+        background: linear-gradient(var(--violet-2), var(--violet-6)); 
+        width: 4px;
+        box-shadow: 0 0 12px rgba(155,169,255,0.5);
+    }
+
+    /* Skills icons */
+    .fas.fa-code { color: var(--violet-9); }
+    .fas.fa-cloud { color: var(--violet-7); }
+    .fas.fa-chart-bar { color: var(--violet-5); }
+    .fas.fa-tools { color: var(--violet-3); }
+
+    /* Contact */
+    #contact {
+        background: linear-gradient(135deg, var(--violet-1), var(--dark-bg));
+        color: #f8fafc;
+    }
+    #contact h2 { color: var(--violet-9); }
+    #contact h5, #contact .fas { color: var(--violet-8); }
+
+    /* Cloud stack violet shadows */
+    .cloud-stack-hero i {
+        filter: drop-shadow(0 6px 20px rgba(155,169,255,0.5));
+    }
+    .cloud-stack-hero i.fab.fa-aws { color: #f59e0b; }
+    .cloud-stack-hero i.fab.fa-microsoft { color: #3b82f6; }
+    .cloud-stack-hero i.fab.fa-google { color: #10b981; }
+
+    footer {
+        background: var(--dark-bg);
+        color: var(--violet-8);
+        border-top: 1px solid var(--violet-3);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .hero h1 { font-size: 2.2rem !important; }
+        section h2 { font-size: 2rem; }
+        .card { margin-bottom: 1.5rem; }
+    }
+
+@media (max-width: 992px) {
+    #about, #projects, #certifications, #skills, #experience { margin: 1rem; max-width: 95%; }
+    section h2 { font-size: 1.8rem; }
+}
+@media (max-width: 576px) {
+    .navbar-brand { font-size: 1.2rem; }
+    .card { margin-bottom: 1rem; }
+    .timeline-item h5 { font-size: 1.1rem; }
+}
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.2rem !important; }
+    section h2 { font-size: 2rem; }
+    .card { margin-bottom: 1.5rem; }
+    /* Naye additions upar wale */
+}
+/* Hero Mobile Full Fix */
+@media (max-width: 576px) {
+    .hero {
+        padding-top: 80px !important; /* Navbar fixed ke liye space */
+        min-height: 100vh;
+    }
+    .hero .container {
+        padding: 0 15px !important;
+    }
+    .hero h1 {
+        font-size: 1.6rem !important;
+        margin-bottom: 1rem !important;
+    }
+    .hero .lead {
+        font-size: 1rem !important;
+    }
+    .btn-lg {
+        display: block !important;
+        width: 100% !important;
+        margin: 0.5rem 0 !important;
+        padding: 0.6rem !important;
+    }
+    .cloud-stack-hero {
+        min-height: 250px !important;
+        margin-top: 1rem;
+    }
+    /* Navbar fixed */
+    body {
+        padding-top: 76px; /* Navbar height */
+    }
+    @media (max-width: 768px) {
+    img.rounded-circle {
+        width: 230px !important;
+        height: 260px !important;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+}
+
+/* Extra Small Phones */
+@media (max-width: 400px) {
+    .hero h1 { font-size: 1.4rem !important; }
+    .cloud-stack-hero i { font-size: 40px !important; }
+}
+
+@media (max-width: 768px) {
+    /* Existing code + yeh naye */
+    .centered-cloud-stack i {
+        font-size: 70px !important;  /* AWS/Azure/Google icons bigger */
+        margin: 8px auto !important;
+    }
+    .cloud-stack-hero i.fa-cloud {
+        font-size: 225px !important;  /* Background cloud thoda bada */
+        opacity: 0.2;
+    }
+}
+
+
+
+
+</style>
+
+
+
+
+
 </head>
 <body>
     <!-- Navbar -->
@@ -123,8 +313,8 @@
                     <p class="lead mb-4">Cloud Engineer | DevOps Engineer | BTech CS | Azure & AWS Specialist |</p>
                     <a href="#projects" class="btn btn-primary btn-lg me-3">View Projects</a>
                     <a href="tushar resume 14.pdf" class="btn btn-outline-light btn-lg me-3" download>Download Resume</a> 
-                    <a href="https://github.com/Tushar-mahur" class="btn btn-outline-light btn-lg me-3" target="_blank">
-                            <i class="fab fa-github me-2"></i>GitHub</a>
+                    <a href="https://github.com/Tushar-mahur" class="btn btn-outline-light btn-lg me-3 " target="_blank">
+                        <i class="fab fa-github me-2"></i>GitHub</a>
                     <a href="https://www.linkedin.com/in/Tushar_mahur" class="btn btn-outline-primary btn-lg me-3 mt-4" target="_blank">
                         <i class="fab fa-linkedin me-2"></i>LinkedIn</a>
                     <a href="https://www.credly.com/users/tushar-mahur" class="btn btn-outline-warning btn-lg me-3 mt-4" target="_blank">
